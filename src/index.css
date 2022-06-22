@@ -1,21 +1,14 @@
-html,
-body,
-#root,
-.light,
-.dark {
-  width: 100%;
-  height: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap");
+
+* {
   margin: 0;
+  box-sizing: border-box;
+  padding: 0;
 }
 
-.light {
-  background-color: #fff;
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: purple;
+  color: #fff;
+  line-height: 1.6;
 }
-
-.dark {
-  background-color: #000;
-}
-
-/* button {
-
-} */

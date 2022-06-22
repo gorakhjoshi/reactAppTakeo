@@ -1,10 +1,18 @@
+import FeedbackList from "./components/FeedbackList";
 import Header from "./components/Header";
+import Card from "./components/shared/Card";
+import data from "./data/feedback";
 
 function App() {
   return (
     <div>
-      <div>I am from App component</div>
-      <Header />
+      <Card>
+        <Header text="Header" />
+      </Card>
+
+      <Card>
+        <FeedbackList feedback={data} />
+      </Card>
     </div>
   );
 }
