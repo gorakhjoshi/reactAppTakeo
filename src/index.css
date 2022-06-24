@@ -106,6 +106,7 @@ header {
   border: 1px solid #ccc;
   padding: 8px 10px;
   border-radius: 8px;
+  background-color: white;
 }
 
 input {
@@ -149,7 +150,6 @@ input:focus {
   color: #fff;
   border: 0;
   border-radius: 8px;
-  color: #fff;
   width: 100px;
   height: 40px;
   cursor: pointer;
