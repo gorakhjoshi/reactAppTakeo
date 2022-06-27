@@ -1,28 +1,31 @@
+import { useState } from "react";
+import FeedbackForm from "./components/FeedbackForm";
 import FeedbackList from "./components/FeedbackList";
+import FeedbakStats from "./components/FeedbakStats";
 import Header from "./components/Header";
 import data from "./data/feedback";
-import Card from "./components/shared/Card";
-import FeedbackForm from "./components/FeedbackForm";
-import Button from "./components/shared/Button";
-import { useState } from "react";
-
-// Rating
-// Feedback Text
 
 function App() {
   const [text, setText] = useState("");
   const [feedback, setFeedback] = useState(data);
-  console.log(feedback);
+
+  // console.log(text);
 
   function feedbackData(message) {
-    setText(message);
+    console.log(message);
+  }
+
+  function deleteFeedback(id) {
+    console.log(id);
+    // DELETE FEEDBACK
   }
 
   return (
     <>
       <Header text="Header" />
       <FeedbackForm fnData={feedbackData} />
-      <FeedbackList feedback={data} />
+      <FeedbackList feedback={data} handleDelete={deleteFeedback} />
+      <FeedbakStats data={feedback} />
     </>
   );
 }
