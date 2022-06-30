@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Rating from "./Rating";
 import Button from "./shared/Button";
+import Card from "./shared/Card";
 
 function FeedbackForm({ fnData }) {
   const [feedbackText, setFeedbackText] = useState("");
@@ -33,7 +34,7 @@ function FeedbackForm({ fnData }) {
   }
 
   return (
-    <div>
+    <Card>
       <div>Select Rating</div>
       <form onSubmit={handleSubmit}>
         <Rating selectFunction={select} />
@@ -44,13 +45,13 @@ function FeedbackForm({ fnData }) {
             onChange={handleChange}
             value={feedbackText}
           />
+          <Button version="secondary" type="submit" isDisabled={disable}>
+            Send
+          </Button>
         </div>
-        <Button version="secondary" type="submit" isDisabled={disable}>
-          Send
-        </Button>
         {message && <div style={{ color: "red" }}>{message}</div>}
       </form>
-    </div>
+    </Card>
   );
 }
 export default FeedbackForm;

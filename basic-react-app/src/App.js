@@ -16,8 +16,9 @@ function App() {
   }
 
   function deleteFeedback(id) {
-    console.log(id);
-    // DELETE FEEDBACK
+    if (window.confirm("Do you really want to delete this feedback?")) {
+      setFeedback(feedback.filter((item) => item.id !== id));
+    }
   }
 
   return (
