@@ -3,14 +3,6 @@ import React from "react";
 
 const CountContext = React.createContext();
 
-function CountProvider(props) {
-  const [count, setCount] = React.useState(0);
-
-  const value = [count, setCount];
-
-  return <CountContext.Provider value={value} {...props} />;
-}
-
 function CountDisplay() {
   const [count] = React.useContext(CountContext);
 
@@ -24,13 +16,13 @@ function Counter() {
 }
 
 function App() {
+  const [count, setCount] = React.useState(0);
+  const value = [count, setCount];
   return (
-    <div>
-      <CountProvider>
-        <Counter />
-        <CountDisplay />
-      </CountProvider>
-    </div>
+    <CountContext.Provider value={value}>
+      <Counter />
+      <CountDisplay />
+    </CountContext.Provider>
   );
 }
 
