@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FeedbackContext } from "../context/FeedbackContext";
 import Rating from "./Rating";
 import Button from "./shared/Button";
 import Card from "./shared/Card";
 
-function FeedbackForm({ fnData }) {
+function FeedbackForm() {
+  const { feedbackData: fnData } = useContext(FeedbackContext);
   const [text, setText] = useState("");
   const [message, setMessage] = useState("");
   const [disable, setDisable] = useState(true);

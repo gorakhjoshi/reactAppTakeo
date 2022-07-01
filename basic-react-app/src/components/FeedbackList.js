@@ -1,7 +1,12 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { FeedbackContext } from "../context/FeedbackContext";
 import FeedbackItem from "./FeedbackItem";
 
-function FeedbackList({ feedback, handleDelete }) {
+function FeedbackList() {
+  const { feedback, deleteFeedback: handleDelete } =
+    useContext(FeedbackContext);
+
   if (!feedback) {
     return <div>No Feedbacks Found!</div>;
   }
