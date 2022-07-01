@@ -4,7 +4,7 @@ import Button from "./shared/Button";
 import Card from "./shared/Card";
 
 function FeedbackForm({ fnData }) {
-  const [feedbackText, setFeedbackText] = useState("");
+  const [text, setText] = useState("");
   const [message, setMessage] = useState("");
   const [disable, setDisable] = useState(true);
   const [rating, setRating] = useState(0);
@@ -12,7 +12,7 @@ function FeedbackForm({ fnData }) {
   console.log(rating);
 
   function handleChange(e) {
-    setFeedbackText(e.target.value);
+    setText(e.target.value);
 
     if (e.target.value.trim().length < 10) {
       setDisable(true);
@@ -25,8 +25,8 @@ function FeedbackForm({ fnData }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fnData({ feedbackText, rating });
-    setFeedbackText("");
+    fnData({ text, rating });
+    setText("");
   }
 
   function select(rating) {
@@ -43,7 +43,7 @@ function FeedbackForm({ fnData }) {
             type="text"
             placeholder="Write your feedback here!"
             onChange={handleChange}
-            value={feedbackText}
+            value={text}
           />
           <Button version="secondary" type="submit" isDisabled={disable}>
             Send

@@ -1,11 +1,12 @@
 import { useState } from "react";
 function Rating({ selectFunction }) {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(null);
 
   function handleChange(e) {
     setSelected(+e.target.value);
     selectFunction(+e.target.value);
   }
+
   // function clearRating() {
   //   setSelected("");
   // }
