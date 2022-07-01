@@ -1,6 +1,7 @@
 {
   "name": "myfirstapp",
   "version": "0.0.1",
+  "homepage": ".",
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
