@@ -11,8 +11,6 @@ function FeedbackForm() {
   const [disable, setDisable] = useState(true);
   const [rating, setRating] = useState(0);
 
-  console.log(rating);
-
   function handleChange(e) {
     setText(e.target.value);
 

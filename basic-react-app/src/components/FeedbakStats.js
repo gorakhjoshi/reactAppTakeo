@@ -3,7 +3,6 @@ import { FeedbackContext } from "../context/FeedbackContext";
 
 function FeedbakStats() {
   const { feedback } = useContext(FeedbackContext);
-  console.log(feedback);
   const result =
     feedback.reduce((acc, item) => acc + item.rating, 0) / feedback.length;
 
