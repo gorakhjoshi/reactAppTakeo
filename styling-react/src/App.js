@@ -1,16 +1,12 @@
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
-
-const theme = {
-  colors: {
-    primary: "blue",
-    secondary: "cyan",
-  },
-};
+import GlobalStyles from "./styles/Global";
+import { theme } from "./styles/theme";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <Header />
     </ThemeProvider>
   );
