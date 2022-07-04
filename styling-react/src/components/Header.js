@@ -1,10 +1,6 @@
-import style from "./Header.module.css";
+import { Container } from "../styles/Container.styled";
 
 function Header() {
-  return (
-    <>
-      <div className={style.header}>I am header from Header.js</div>
-    </>
-  );
+  return <Container>I am header from Header.js</Container>;
 }
 export default Header;
