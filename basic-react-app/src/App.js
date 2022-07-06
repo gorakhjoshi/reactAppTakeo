@@ -4,6 +4,7 @@ import FeedbackList from "./components/FeedbackList";
 import FeedbakStats from "./components/FeedbakStats";
 import Header from "./components/Header";
 import { FeedbackProvider } from "./context/FeedbackContext";
+import axios from "axios";
 
 // const feedback = fetch("http://localhost:4000/feedback")
 //   .then((response) => response.json())
@@ -14,8 +15,8 @@ import { FeedbackProvider } from "./context/FeedbackContext";
 function App() {
   useEffect(() => {
     (async function () {
-      const feedback = await fetch("http://localhost:4000/feedback");
-      const data = await feedback.json();
+      const feedback = await axios("http://localhost:4000/feedback");
+      console.log(feedback);
     })();
   }, []);
 
