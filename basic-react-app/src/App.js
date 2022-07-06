@@ -1,10 +1,24 @@
+import { useEffect } from "react";
 import FeedbackForm from "./components/FeedbackForm";
 import FeedbackList from "./components/FeedbackList";
 import FeedbakStats from "./components/FeedbakStats";
 import Header from "./components/Header";
 import { FeedbackProvider } from "./context/FeedbackContext";
 
+// const feedback = fetch("http://localhost:4000/feedback")
+//   .then((response) => response.json())
+//   .then((data) => data);
+
+// console.log(feedback);
+
 function App() {
+  useEffect(() => {
+    (async function () {
+      const feedback = await fetch("http://localhost:4000/feedback");
+      const data = await feedback.json();
+    })();
+  }, []);
+
   return (
     <FeedbackProvider>
       {/* <BrowserRouter> */}
