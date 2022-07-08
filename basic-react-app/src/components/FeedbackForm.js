@@ -1,11 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FeedbackContext } from "../context/FeedbackContext";
 import Rating from "./Rating";
 import Button from "./shared/Button";
 import Card from "./shared/Card";
 
 function FeedbackForm() {
-  const { feedbackData: fnData } = useContext(FeedbackContext);
+  const {
+    feedbackData: fnData,
+    feedbackEdit,
+    updateFeedback,
+  } = useContext(FeedbackContext);
   const [text, setText] = useState("");
   const [message, setMessage] = useState("");
   const [disable, setDisable] = useState(true);
@@ -23,9 +27,22 @@ function FeedbackForm() {
     }
   }
 
+  useEffect(() => {
+    console.log("Running");
+    if (feedbackEdit.edit === true) {
+      setDisable(false);
+      setText(feedbackEdit.item.text);
+      setRating(feedbackEdit.item.rating);
+    }
+  }, [feedbackEdit]);
+
   function handleSubmit(e) {
     e.preventDefault();
-    fnData({ text, rating });
+    if (feedbackEdit.edit === true) {
+      updateFeedback(feedbackEdit.item.id, { text, rating });
+    } else {
+      fnData({ text, rating });
+    }
     setText("");
   }
 
