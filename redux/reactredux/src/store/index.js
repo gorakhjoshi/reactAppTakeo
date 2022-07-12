@@ -1,9 +1,6 @@
 import { createStore } from "redux";
 
-const counterReducer = (
-  state = { countryName: "Nepal", capital: "kathmandu" },
-  action
-) => {
+const counterReducer = (state = { count: 0 }, action) => {
   return state;
 };
 
