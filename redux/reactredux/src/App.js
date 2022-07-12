@@ -8,9 +8,9 @@ function App() {
   return (
     <div>
       {/* <Auth /> */}
+      {/* <Header /> */}
       <Counter />
-      {/* <Header />
-      <UserProfile /> */}
+      {/* <UserProfile /> */}
     </div>
   );
 }
