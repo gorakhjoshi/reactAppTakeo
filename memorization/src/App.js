@@ -1,7 +1,7 @@
-import { useState, memo } from "react";
+import { useState, memo, useMemo, useCallback } from "react";
 import "./App.css";
 
-function Swatch({ params }) {
+function Swatch({ params, onClick }) {
   console.log("Swatch is rendering");
   return (
     <div
@@ -10,15 +10,21 @@ function Swatch({ params }) {
   );
 }
 
-const MemorizedComponent = memo(Swatch, (prevValue, currentValue) => {
-  return prevValue.params.color === currentValue.params.color;
-});
+const MemorizedComponent = memo(Swatch);
 
 function App() {
   console.log("App is rendering");
   const [renderApp, setRenderApp] = useState(0);
   const [color, setColor] = useState("red");
+
+  const params = useMemo(() => {
+    console.log("Memo running");
+    return { color };
+  }, [color]);
+
   console.log(`Current value of renderApp: ${renderApp}`);
+
+  const clickFn = useCallback(() => {}, []);
 
   return (
     <div className="app">
@@ -26,7 +32,7 @@ function App() {
       <button onClick={() => setColor(color === "red" ? "green" : "red")}>
         Change color
       </button>
-      <MemorizedComponent params={{ color }} />
+      <MemorizedComponent params={params} onClick={clickFn} />
     </div>
   );
 }
