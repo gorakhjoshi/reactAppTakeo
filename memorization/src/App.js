@@ -10,7 +10,9 @@ function Swatch({ params }) {
   );
 }
 
-const MemorizedComponent = memo(Swatch);
+const MemorizedComponent = memo(Swatch, (prevValue, currentValue) => {
+  return prevValue.params.color === currentValue.params.color;
+});
 
 function App() {
   console.log("App is rendering");
