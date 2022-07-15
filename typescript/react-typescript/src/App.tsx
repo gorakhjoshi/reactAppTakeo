@@ -1,5 +1,9 @@
+function NameTag({ name }: { name: string }) {
+  return <div>{name}</div>;
+}
+
 function App() {
-  return <div>App</div>;
+  return <NameTag name="React" />;
 }
 
 export default App;
