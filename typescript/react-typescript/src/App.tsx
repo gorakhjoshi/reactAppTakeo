@@ -1,19 +1,30 @@
 import { questions } from "./questions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-type QuestionProps = {
+// type QuestionProps = {
+//   question: string;
+//   answer: string;
+// };
+
+interface QuestionProps {
   question: string;
   answer: string;
 };
 
 const Question = ({ question, answer }: QuestionProps) => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setToggle(true);
+    }, 2000);
+  }, []);
 
   return (
     <article className="question">
       <header>{question}</header>
       <p className="answer">
-        <span className={`${toggle ? 'blurred': ''}`}>{answer}</span>
+        <span className={`${toggle ? "blurred" : ""}`}>{answer}</span>
       </p>
       <footer>
         <button onClick={() => setToggle(!toggle)}>Toggle Answer</button>
