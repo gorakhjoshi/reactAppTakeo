@@ -1,18 +1,32 @@
-type NameTagChildren = {
-  children: React.ReactNode;
-  style: React.CSSProperties;
+import { questions } from './questions';
+
+type QuestionProps = {
+  question: string;
+  answer: string;
 };
 
-function NameTag({ children, style }: NameTagChildren) {
-  return <div style={style}>{children}</div>;
-}
-
-function App() {
+const Question = ({ question, answer }: QuestionProps) => {
   return (
-    <NameTag style={{ backgroundColor: "red" }}>
-      <h1>I love React</h1>
-    </NameTag>
+    <article className="question">
+      <header>{question}</header>
+      <p className="answer">
+        <span className="blurred">{answer}</span>
+      </p>
+      <footer>
+        <button>Toggle Answer</button>
+      </footer>
+    </article>
   );
-}
+};
+
+const App = () => {
+  return (
+    <main>
+      {questions.map((q) => (
+        <Question question={q.question} answer={q.answer} key={q.id} />
+      ))}
+    </main>
+  );
+};
 
 export default App;
