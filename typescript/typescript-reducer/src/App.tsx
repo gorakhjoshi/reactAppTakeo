@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, Dispatch } from "react";
 
 const initialState = {
   numberOfPeople: 10,
@@ -13,6 +13,16 @@ type PizzaData = {
   slicePerPie: number;
 };
 
+type PizzaState = PizzaData & { pizzaNeeded: number };
+
+type PizzaAction = {
+  type:
+    | "UPDATE_NUMBER_OF_PEOPLE"
+    | "UPDATE_SLICES_PER_PERSON"
+    | "UPDATE_SLICES_PER_PIE";
+  payload: number;
+};
+
 function calculatePizzasNeeded({
   numberOfPeople,
   slicesPerPerson,
@@ -25,7 +35,7 @@ function addPizzasNeeded(data: PizzaData) {
   return { ...data, pizzaNeeded: calculatePizzasNeeded(data) };
 }
 
-function reducer(state: any, action: any) {
+function reducer(state: PizzaState, action: PizzaAction) {
   console.log(state);
   console.log(action);
   if (action.type === "UPDATE_NUMBER_OF_PEOPLE") {
@@ -43,7 +53,7 @@ function reducer(state: any, action: any) {
   return state;
 }
 
-function Calculation({ count }: { count: any }) {
+function Calculation({ count }: { count: number }) {
   return (
     <div className="calculation">
       <p className="caption">Number of pizzas Needed</p>
@@ -52,7 +62,13 @@ function Calculation({ count }: { count: any }) {
   );
 }
 
-function Calculator({ state, dispatch }: { state: any; dispatch: any }) {
+function Calculator({
+  state,
+  dispatch,
+}: {
+  state: PizzaState;
+  dispatch: Dispatch<PizzaAction>;
+}) {
   return (
     <div>
       <form>
