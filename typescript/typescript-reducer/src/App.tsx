@@ -1,43 +1,22 @@
-import { useState } from "react";
-
-type PersonProp<T> = {
-  name: T;
-};
-
-const person: PersonProp<string> = {
-  name: "Alex",
-};
-
-type Link<U> = {
-  value: U;
-  next?: Link<U>;
-
-};
-
-const firstValue: Link<number[]> = {
-  value: [30, 40],
-};
-
-const secondValue: Link<string[]> = {
-  value: ["thirty", "fourty"],
-};
-
-const thirdValue: Link<number> = {
-  value: 45,
-  next: {
-    value: 67,
-  },
-};
-
-function createNode<T>(value: T): Link<T> {
-  return { value};
+interface animal {
+  name: string;
 }
 
-createNode(20)
-createNode('20')
+interface dog extends animal {
+  breed: string;
+}
+
+interface cat extends dog {
+  age: number;
+}
 
 function App() {
-  const [age, setAge] = useState<number | null>(null);
+  const cat: cat = {
+    name: "Alex",
+    breed: "Yes",
+    age: 5
+  };
+  
   return <div>App</div>;
 }
 
