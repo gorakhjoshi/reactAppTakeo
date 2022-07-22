@@ -1,26 +1,44 @@
-import { createContext } from "react";
+import { useState } from "react";
 
-const theme = {
-  light: {
-    backgroundColor: "white",
-    color: "black",
-  },
-  dark: {
-    backgroundColor: "black",
-    color: "white",
+type PersonProp<T> = {
+  name: T;
+};
+
+const person: PersonProp<string> = {
+  name: "Alex",
+};
+
+type Link<U> = {
+  value: U;
+  next?: Link<U>;
+
+};
+
+const firstValue: Link<number[]> = {
+  value: [30, 40],
+};
+
+const secondValue: Link<string[]> = {
+  value: ["thirty", "fourty"],
+};
+
+const thirdValue: Link<number> = {
+  value: 45,
+  next: {
+    value: 67,
   },
 };
 
-const ThemeContext = createContext(theme);
+function createNode<T>(value: T): Link<T> {
+  return { value};
+}
 
-const ThemeProvider = ({ children }: {children: React.ReactNode}) => {
-  return (
-    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
-  );
-};
+createNode(20)
+createNode('20')
 
 function App() {
-  return <ThemeProvider>App</ThemeProvider>;
+  const [age, setAge] = useState<number | null>(null);
+  return <div>App</div>;
 }
 
 export default App;
