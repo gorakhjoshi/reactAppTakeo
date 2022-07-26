@@ -1,5 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+const obj = {
+  a: 10,
+  b: 20,
+  c: 40,
+};
 
 function App() {
   return (
