@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTools, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { FETCH_CHECKOUT_COUNT_ERROR } from "../../constants/constants";
-import "./Navbar.css";
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTools, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FETCH_CHECKOUT_COUNT_ERROR } from '../../constants/constants';
+import './Navbar.css';
 
 const Navbar = ({ checkoutCount }) => {
-  const [hello, setHello] = useState("Hello");
+  const [hello, setHello] = useState('Hello');
 
   return (
     <nav className="navbar">

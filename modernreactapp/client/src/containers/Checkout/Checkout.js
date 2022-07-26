@@ -33,7 +33,7 @@ class Checkout extends Component {
 
   removeItemFromCheckout = async (id) => {
     const remainingCheckoutItems = await checkoutApi.removeProductFromCheckout(
-      id,
+      id
     );
     if (remainingCheckoutItems !== REMOVE_PRODUCT_FROM_CHECKOUT_ERROR) {
       this.setState({

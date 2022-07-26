@@ -69,7 +69,7 @@ export const removeProductFromCheckout = async (id) => {
     const existingCheckoutItems = await getAllCheckoutItems();
     await axios.delete(`/checkout/${id}`);
     const remainingCheckoutItems = existingCheckoutItems.filter(
-      (item) => item.id !== id,
+      (item) => item.id !== id
     );
     return remainingCheckoutItems;
   } catch (err) {
