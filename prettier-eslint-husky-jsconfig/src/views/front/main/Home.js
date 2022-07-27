@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 // Abolute Import
 // import List from "../../../components/List";
 // Relative import
 
-import List from "components/List";
+import List from 'components/List';
 
 function Home() {
   return (
