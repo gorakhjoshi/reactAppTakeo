@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AddThoughtForm } from "./AddThoughtForm";
-import { Thought } from "./Thought";
+import { AddThoughtForm } from "./component/AddThoughtForm";
+import { Thought } from "./component/Thought";
 import { generateId, getNewExpirationTime } from "./utils/utils";
 
 const App = () => {

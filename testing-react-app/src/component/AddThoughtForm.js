@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { generateId, getNewExpirationTime } from "./utils/utils";
+import { generateId, getNewExpirationTime } from "../utils/utils";
 
 export function AddThoughtForm(props) {
   const [text, setText] = useState("");
